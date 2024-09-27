@@ -1,0 +1,30 @@
+<div class="form-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="registrarUsuario()">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput type="text" [(ngModel)]="usuario.nombre" name="nombre" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Teléfono</mat-label>
+      <input matInput type="text" [(ngModel)]="usuario.telefono" name="telefono" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="usuario.email" name="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Saldo Inicial</mat-label>
+      <input matInput type="number" [(ngModel)]="usuario.saldo" name="saldo" required>
+    </mat-form-field>
+
+    <div class="form-buttons">
+      <button mat-raised-button color="primary" type="submit">Ok</button>
+      <button mat-raised-button color="primary" type="button">Cancel</button>
+    </div>
+  </form>
+</div>
+

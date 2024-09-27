@@ -1,0 +1,18 @@
+/* Estilo para el footer */
+.footer {
+  background-color: #ffffff; /* Azul oscuro */
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  z-index: 1000; /* Para asegurarse de que se muestre sobre otros elementos */
+}
+
+/* Evitar que el contenido de la página quede debajo del footer */
+.mat-sidenav-content {
+  padding-bottom: 64px; /* Espacio adicional para que el contenido no quede oculto bajo el footer */
+}

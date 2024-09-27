@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Fondos Disponibles</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre del Fondo</th>
+          <th>Monto Mínimo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fondo of fondos">
+          <td>{{ fondo.nombre }}</td>
+          <td>{{ fondo.montoMinimo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,27 @@
+<div class="form-container">
+    <h5>Subscribir Fondo</h5>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">  
+      <div>
+        <label for="userId"></label>
+        <span>{{ data.usuario.nombre }}</span> <!-- Mostrar el nombre del usuario -->
+      </div>
+      <div>
+        <input style="display: none;" id="userId" [(ngModel)]="data.usuario.id" name="userId" readonly />
+      </div>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Seleccionar Fondo</mat-label>
+        <mat-select [(ngModel)]="selectedFund" name="fund" required>
+          <mat-option *ngFor="let fund of funds" [value]="fund.id">
+            {{ fund.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="form-buttons">
+        <button mat-button type="submit" [disabled]="!userForm.form.valid">Enviar</button>
+        <button mat-button (click)="closeModal()">Cerrar</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,14 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <mat-nav-list>
+        <a class="menu-boton" routerLink="/usuarios" routerLinkActive="active">Listar Usuarios</a>
+        <a style="color: aliceblue;" mat-list-item routerLink="/crear-usuario" routerLinkActive="active">Crear Usuario</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <!-- Aquí se renderizarán los componentes en el router-outlet -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

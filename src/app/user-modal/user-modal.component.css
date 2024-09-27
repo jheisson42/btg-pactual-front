@@ -1,0 +1,56 @@
+/* user-modal.component.css */
+
+.form-container {
+    max-width: 400px; /* Ancho máximo del contenedor */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del contenedor */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: #f9f9f9; /* Color de fondo */
+    text-align: center; /* Centrar texto */
+  }
+  
+  h5 {
+    background-color: #0a68c0; /* Color de fondo del título */
+    color: white; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 0; /* Sin margen superior */
+    margin-bottom: 20px; /* Margen inferior */
+    border-top-left-radius: 8px; /* Esquina superior izquierda */
+    border-top-right-radius: 8px; /* Esquina superior derecha */
+  }
+  
+  mat-form-field {
+    width: 100%; /* Ancho completo para los campos de formulario */
+    margin-bottom: 16px; /* Espaciado inferior */
+  }
+  
+  input {
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #0a68c0; /* Borde azul */
+    border-radius: 4px; /* Esquinas redondeadas */
+    width: 100%; /* Ancho completo */
+  }
+  
+  .form-buttons {
+    display: flex; /* Utiliza flexbox para distribuir botones */
+    justify-content: space-between; /* Espacio entre los botones */
+    gap: 10px; /* Espaciado entre botones */
+  }
+  
+  button {
+    width: 48%; /* Ancho de los botones */
+    border: 1px solid #0a68c0; /* Borde azul */
+    color: white !important; /* Color del texto */
+    background-color: #0a68c0; /* Color de fondo azul */
+    font-weight: bold; /* Negrita */
+    padding: 8px; /* Espaciado interno */
+    border-radius: 4px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor de puntero */
+  }
+  
+  button:hover {
+    background-color: #085da3; /* Color más oscuro al pasar el mouse */
+    color: white; /* Color del texto al hacer hover */
+  }
+  
