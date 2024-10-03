@@ -16,7 +16,7 @@ export class UserListComponent implements OnInit {
  
   expandedHistoryElement: any | null = null;
   expandedSubscribeElement: any | null = null;
-  funds: any = {
+  request: any = {
     usuarioId: '',
     fondoId: '',
     action: ''
@@ -64,14 +64,14 @@ export class UserListComponent implements OnInit {
     let userId = user.id;
     let fundId = user.currentFunds[0].fondoId;
 
-    this.funds = {
+    this.request = {
       usuarioId: userId,
       fondoId: fundId,
       action: 'CANCEL'
     };
 
-    console.log('fondo: ', this.funds);
-    this.fundsService.manageSubscription(this.funds).subscribe(response => {
+    console.log('fondo: ', this.request);
+    this.fundsService.manageSubscription(this.request).subscribe(response => {
       console.log('subscripcion cancelada con éxito', response);
       
       // Mostrar mensaje de éxito
@@ -96,4 +96,5 @@ export class UserListComponent implements OnInit {
       });
     });
   }
+
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environment';
+import { environment } from '../../enviroments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +15,16 @@ export class UserService {
 
   // Obtener lista de usuarios
   getUsuarios(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${this.path}/get-all-users`);
+    return this.http.get(`${this.apiUrl}${this.path}/get-all-users`);
   }
 
   // Registrar nuevo usuario
   registrarUsuario(usuario: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${this.path}/register-user`, usuario);
+    return this.http.post(`${this.apiUrl}${this.path}/register-user`, usuario);
   }
 
   // Obtener usuario por ID
   getUsuarioById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${this.path}/get-user/${id}`);
+    return this.http.get(`${this.apiUrl}${this.path}/get-user/${id}`);
   }
 }

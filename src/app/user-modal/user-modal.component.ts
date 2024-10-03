@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class UserModalComponent implements OnInit {
 
-  //funds: any[] = [];
+  funds: any = [];
   selectedFund: any; 
 
-  funds: any = {
+  request: any = {
     usuarioId: '',
     fondoId: '',
     action: ''
@@ -39,16 +39,16 @@ export class UserModalComponent implements OnInit {
       let userId = this.data.usuario.id;
       let fundId = this.selectedFund ;
 
-      this.funds = {
+      this.request = {
         usuarioId: userId,
         fondoId: fundId,
         action: 'SUBSCRIBE'
       };
 
-      console.log('fondo: ', this.funds);
+      console.log('fondo: ', this.request);
       
 
-    this.fundsService.manageSubscription(this.funds).subscribe(response => {
+    this.fundsService.manageSubscription(this.request).subscribe(response => {
       console.log('subscripcion con éxito', response);
       
       // Mostrar mensaje de éxito
@@ -76,7 +76,7 @@ export class UserModalComponent implements OnInit {
     this.dialogRef.close(); // Cerrar el modal y enviar datos
     setTimeout(() => {
       location.reload();
-    }, 1600);
+    }, 2000);
   }
 
   closeModal(): void {
