@@ -16,7 +16,11 @@ export class UserListComponent implements OnInit {
  
   expandedHistoryElement: any | null = null;
   expandedSubscribeElement: any | null = null;
-
+  funds: any = {
+    usuarioId: '',
+    fondoId: '',
+    action: ''
+  };
   constructor(private userService: UserService, 
     public fundsService: FundsService,
     private snackBar: MatSnackBar,
@@ -60,7 +64,14 @@ export class UserListComponent implements OnInit {
     let userId = user.id;
     let fundId = user.currentFunds[0].fondoId;
 
-    this.fundsService.manageSubscription(userId, fundId, 'CANCEL').subscribe(response => {
+    this.funds = {
+      usuarioId: userId,
+      fondoId: fundId,
+      action: 'CANCEL'
+    };
+
+    console.log('fondo: ', this.funds);
+    this.fundsService.manageSubscription(this.funds).subscribe(response => {
       console.log('subscripcion cancelada con éxito', response);
       
       // Mostrar mensaje de éxito

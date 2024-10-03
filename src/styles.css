@@ -2,6 +2,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.mdc-list-item__primary-text {
-    color: #000;
+.mat-mdc-list-item-unscoped-content{
+    color: rgb(255, 255, 255) !important;
 }

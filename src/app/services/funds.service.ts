@@ -7,30 +7,26 @@ import { Observable } from 'rxjs';
 })
 export class FundsService {
 
-  private apiUrl = 'http://localhost:8080/funds';  // URL de la API REST
+  private apiUrl = 'http://localhost:8080';  // URL de la API REST
+  private path = 'funds'
 
   constructor(private http: HttpClient) { }
 
   // Obtener lista de fondos disponibles
   getFunds(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/get-all-funds`);
+    return this.http.get(`${this.apiUrl}/${this.path}/get-all-funds`);
   }
 
   // Suscribir a un fondo
-  manageSubscription(usuarioId: string, fondoId: string, action: string): Observable<any> {
-    // Crea un objeto HttpParams
-    const params = new HttpParams()
-      .set('usuarioId', usuarioId)
-      .set('fondoId', fondoId)
-      .set('action', action);
+  manageSubscription(funds: any): Observable<any> {
 
     // Realiza la petición POST con parámetros de consulta en la URL
-    return this.http.post(`${this.apiUrl}/manage-subscription`, {}, { params });
+    return this.http.post(`${this.apiUrl}/${this.path}/manage-subscription`, funds);
   }
 
 
   // Cancelar suscripción
   cancelar(usuarioId: string, fondoId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/cancelar`, { usuarioId, fondoId });
+    return this.http.post(`${this.apiUrl}/${this.path}/cancelar`, { usuarioId, fondoId });
   }
 }

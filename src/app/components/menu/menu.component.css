@@ -4,7 +4,7 @@
 
 mat-sidenav {
   width: 240px;
-  background-color: #003366; /* Azul oscuro */
+  background-color: #003366; 
   color: white;
 }
 
@@ -14,17 +14,20 @@ mat-nav-list a {
   color: white;
   font-weight: bold;
   display: block;
-  text-decoration: none;
+  text-decoration: none;  
+  border-radius: initial;
 }
 
 mat-nav-list a.active {
-  background-color: #007bff; /* Azul más claro */
-  border-left: 5px solid white; /* Indicador visual para la opción activa */
+  background-color: #007bff;   
+  border-radius: initial;
+  border-left: 5px solid white; 
 }
 
 mat-nav-list a:hover {
-  background-color: #005bb5; /* Azul intermedio para hover */
-  text-decoration: none;
+  background-color: #005bb5; 
+  text-decoration: none;  
+  border-radius: initial;
 }
 
 mat-sidenav-content {

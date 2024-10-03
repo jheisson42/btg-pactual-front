@@ -13,7 +13,7 @@
         <mat-label>Seleccionar Fondo</mat-label>
         <mat-select [(ngModel)]="selectedFund" name="fund" required>
           <mat-option *ngFor="let fund of funds" [value]="fund.id">
-            {{ fund.nombre }}
+            {{ fund.nombre | uppercase }}
           </mat-option>
         </mat-select>
       </mat-form-field>

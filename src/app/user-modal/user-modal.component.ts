@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FundsService } from '../services/funds.service';
 import { UserService } from '../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-modal',
@@ -11,12 +12,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UserModalComponent implements OnInit {
 
-  funds: any[] = [];
+  //funds: any[] = [];
   selectedFund: any; 
+
+  funds: any = {
+    usuarioId: '',
+    fondoId: '',
+    action: ''
+  };
 
   constructor(public fundsService: FundsService,
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<UserModalComponent>,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -31,7 +39,16 @@ export class UserModalComponent implements OnInit {
       let userId = this.data.usuario.id;
       let fundId = this.selectedFund ;
 
-    this.fundsService.manageSubscription(userId, fundId, 'SUBSCRIBE').subscribe(response => {
+      this.funds = {
+        usuarioId: userId,
+        fondoId: fundId,
+        action: 'SUBSCRIBE'
+      };
+
+      console.log('fondo: ', this.funds);
+      
+
+    this.fundsService.manageSubscription(this.funds).subscribe(response => {
       console.log('subscripcion con éxito', response);
       
       // Mostrar mensaje de éxito
@@ -41,11 +58,10 @@ export class UserModalComponent implements OnInit {
         verticalPosition: 'top',
       });
 
-      // Recargar la página después de 3 segundos
-      setTimeout(() => {
+     /* setTimeout(() => {
         location.reload();
-      }, 1600);
-      
+      }, 3000);*/
+
     }, error => {
       let err = error.error.error;
       console.error('Error---->', err);
@@ -58,6 +74,9 @@ export class UserModalComponent implements OnInit {
     });
 
     this.dialogRef.close(); // Cerrar el modal y enviar datos
+    setTimeout(() => {
+      location.reload();
+    }, 1600);
   }
 
   closeModal(): void {
